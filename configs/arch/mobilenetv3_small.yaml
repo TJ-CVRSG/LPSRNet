@@ -1,0 +1,11 @@
+name: mobilenetv3_small
+width_mult: 1.0
+reduced_tail: False
+dilated: False
+pretrained: False
+feature_layers: [2, 3, 5]
+
+stage_in_channels: [16, 24, 40, 96]
+stage_out_channels: [16, 24, 40]
+
+pan_stage_in_channels: [16, 24, 40, 96]

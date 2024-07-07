@@ -1,0 +1,20 @@
+name: mobilenetv3_large
+width_mult: 1
+reduced_tail: False
+dilated: False
+pretrained: False
+feature_layers: [3, 5, 8]
+
+# alpha = 1
+stage_in_channels: [24, 40, 80, 160]
+stage_out_channels: [24, 40, 80]
+
+pan_stage_in_channels: [24, 40, 80, 160]
+
+# alpha = 0.75
+# stage_in_channels: [24, 32, 64, 720]
+# stage_out_channels: [24, 32, 64]
+
+# alpha = 0.5
+# stage_in_channels: [16, 24, 40, 480]
+# stage_out_channels: [16, 24, 40]

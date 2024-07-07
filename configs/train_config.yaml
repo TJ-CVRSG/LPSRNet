@@ -1,0 +1,71 @@
+defaults:
+  - _self_
+  - arch: mobilenetv3_large
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
+
+seed: 42
+
+use_cuda: True
+last_epoch: -1
+num_epochs: 130
+learning_rate: 1e-3
+log_interval: 100
+checkpoint_folder: weights
+
+pretrained_weight: null
+
+scheduler: 
+  # type: cosine # or cosine
+  type: multi-step # or cosine
+  milestones: [70, 100]
+  t_max: 120
+
+resume: 
+  enabled: False
+  weights_path: None
+
+clip_gradient:
+  enabled: True
+  value: 5
+
+model:
+  image_size: 
+    - 128
+    - 32
+  header_expand: 4
+
+wandb:
+  enabled: False
+  project: lpsrnet
+  entity: null
+  name: null
+
+train_dataset:
+  batch_size: 64
+  num_workers: 24
+  data:
+    - name: ccpd_lite
+      enabled: True
+      enable_augment: True
+      base_dir: /run/media/notplus/Work/workspace/alpr_workspace/alpr_paper/LPSRNet/data/ccpd_lite_lpr/train
+      synthetic_dir: /run/media/notplus/Work/workspace/alpr_workspace/alpr_paper/LPSRNet/data/opencv_synthetic
+
+val_dataset:
+  batch_size: 64
+  num_workers: 24
+  data:
+    - name: ccpd_lite_val
+      enabled: True
+      enable_augment: False
+      base_dir: /run/media/notplus/Work/workspace/alpr_workspace/alpr_paper/LPSRNet/data/ccpd_lite_lpr/val
+      synthetic_dir: /run/media/notplus/Work/workspace/alpr_workspace/alpr_paper/LPSRNet/data/opencv_synthetic
+
+loss:
+  cel_weight: 1
+  ctc_weight: 0
+  align_mse_weight: 1
+
+plate_template_path: /run/media/notplus/Work/workspace/alpr_workspace/alpr_paper/LPSRNet/data/plate_template.pt
+
+acc_metric: pred1/accuracy
