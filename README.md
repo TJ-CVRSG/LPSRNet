@@ -45,11 +45,11 @@ If you find this work useful for your research, please cite our paper:
 @ARTICLE{10579856,
   author={Liu, Weijia and Zhang, Shaoming and Tang, Yan and Wang, Zhong and Wang, Jianmei},
   journal={IEEE Transactions on Circuits and Systems for Video Technology}, 
-  title={Style Reconstruction-Driven Networks for Occlusion-aware License Plate Recognition}, 
+  title={Style Reconstruction-Driven Networks for Occlusion-Aware License Plate Recognition}, 
   year={2024},
-  volume={},
-  number={},
-  pages={1-1},
+  volume={34},
+  number={11},
+  pages={11438-11450},
   keywords={License plate recognition;Image segmentation;Accuracy;Image reconstruction;Character recognition;Standards;Data models;License plate recognition;style transfer;image generation},
   doi={10.1109/TCSVT.2024.3421559}}
 ```
